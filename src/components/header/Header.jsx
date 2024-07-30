@@ -4,7 +4,7 @@ import styles from "./header.module.css";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+const Header = ({ onClick }) => {
   const [showNavbar, setShowNavbar] = React.useState(false);
   const navigate = useNavigate();
 
@@ -62,16 +62,18 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("vipShows")}
                 >
                   VIP Shows
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/FDpage"
+                  to="/trending"
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("trending")}
                 >
                   Trending
                 </NavLink>
@@ -82,46 +84,40 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("romance")}
                 >
                   Romance
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/savings"
+                  to="/motivation"
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("motivation")}
                 >
                   Motivation
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/contactUs"
+                  to="/religion"
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("religion")}
                 >
                   Religion
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  to="/test"
-                  className={({ isActive }) =>
-                    isActive ? styles.ActiveNav : null
-                  }
-                >
-                  Test Page
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink
-                  to="/content"
+                  to="/horror"
                   className={({ isActive }) =>
                     isActive ? styles.ActiveNav : null
                   }
+                  onClick={() => onClick("horror")}
                 >
                   Horror
                 </NavLink>

@@ -59,8 +59,8 @@ function ShowRows({ title }) {
   };
 
   return (
-    <>
-      <Box className="px-4 md:px-8 xl:px-5 sm:mt-8 mt-4" id="div1">
+    <div>
+      <Box className="px-4 md:px-8 xl:px-5 sm:mt-8 mt-4">
         <Box className="font-medium mb-4 flex justify-between items-center text-[black]  pl-[10px]">
           <Typography
             className="cursor-pointer text-[24px] font-[500]"
@@ -120,7 +120,7 @@ function ShowRows({ title }) {
           </Carousel>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
 
