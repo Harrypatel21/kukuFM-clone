@@ -63,7 +63,7 @@ const Header = () => {
                     isActive ? styles.ActiveNav : null
                   }
                 >
-                  Home
+                  VIP Shows
                 </NavLink>
               </li>
               <li>
@@ -73,7 +73,17 @@ const Header = () => {
                     isActive ? styles.ActiveNav : null
                   }
                 >
-                  Fixed Deposits
+                  Trending
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/romance"
+                  className={({ isActive }) =>
+                    isActive ? styles.ActiveNav : null
+                  }
+                >
+                  Romance
                 </NavLink>
               </li>
               <li>
@@ -83,7 +93,7 @@ const Header = () => {
                     isActive ? styles.ActiveNav : null
                   }
                 >
-                  Savings Deposits
+                  Motivation
                 </NavLink>
               </li>
               <li>
@@ -93,7 +103,7 @@ const Header = () => {
                     isActive ? styles.ActiveNav : null
                   }
                 >
-                  Feedback
+                  Religion
                 </NavLink>
               </li>
               {/* <li>
@@ -113,7 +123,7 @@ const Header = () => {
                     isActive ? styles.ActiveNav : null
                   }
                 >
-                  Learning Centre
+                  Horror
                 </NavLink>
               </li>
             </ul>

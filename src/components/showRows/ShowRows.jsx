@@ -7,98 +7,40 @@ import "react-multi-carousel/lib/styles.css";
 import { PlayArrow } from "@mui/icons-material";
 
 function ShowRows({ title }) {
-  const [showRowsData, setRowData] = useState();
+  const [showRowsData, setRowData] = useState([]);
 
   let url = "";
-  // if (title === "Top 10 in india") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/top-10-in-india/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "VIP Shows") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/vip-shows/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "Trending Now") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/trending-now/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "Best in Romance") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-romance/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "Best in Motivation") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-motivation/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "Best in Religion") {
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-religion/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-  // if (title === "Best in Horror") {
-  //   //"excited"
-  //   url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-horror/shows/?preferred_langs=hindi&page=1&lang=engli`;
-  // }
-
-  if (title === "Top 10 in india" || title === "VIP Shows") {
-    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/home/all/?preferred_langs=hindi&page=1&lang=english`;
-  } else {
-    url =
-      "https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/home/all/?preferred_langs=hindi&page=2&lang=english";
+  if (title === "Top 10 in India") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/top-10-in-india/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "VIP Shows") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/vip-shows/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "Trending Now") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/trending-now/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "Best in Romance") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-romance/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "Best in Motivation") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-motivation/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "Best in Religion") {
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-religion/shows/?preferred_langs=hindi&page=1&lang=engli`;
+  }
+  if (title === "Best in Horror") {
+    //"excited"
+    url = `https://d31ntp24xvh0tq.cloudfront.net/api/v2.1/groups/best-in-horror/shows/?preferred_langs=hindi&page=1&lang=engli`;
   }
 
   useEffect(
-    async () => {
-      try {
-        const response = await fetch(url);
-        const data1 = await response.json();
-        console.log("API dta", data1);
-        if (data1.items) {
-          if (title === "Top 10 in India") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Top 10 in India"
-            );
-            setRowData(data.mixed_content_items);
-            console.log("mixed_content", showRowsData);
-          }
-
-          if (title === "VIP Shows") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "VIP Shows"
-            );
-            setRowData(data.shows);
-          }
-          if (title === "Trending Now") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Trending"
-            );
-            setRowData(data.shows);
-          }
-          if (title === "Best in Romance") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Best in Romance"
-            );
-            setRowData(data.shows);
-          }
-          if (title === "Best in Motivation") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Best in Motivation"
-            );
-            setRowData(data.shows);
-          }
-          if (title === "Best in Religion") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Best in Religion"
-            );
-            setRowData(data.shows);
-          }
-          if (title === "Best in Horror") {
-            const data = data1?.items?.filter(
-              (item) => item.title === "Best in Horror"
-            );
-            setRowData(data.shows);
-          }
-        }
-        // setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
+    () => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => setRowData(data.shows));
     },
     [],
-    console.log("rowdata", showRowsData)
+    console.log("ShowROwData", showRowsData)
   );
 
   const responsive = {
@@ -118,7 +60,7 @@ function ShowRows({ title }) {
 
   return (
     <>
-      <Box className="px-4 md:px-8 xl:px-5 sm:mt-8 mt-4">
+      <Box className="px-4 md:px-8 xl:px-5 sm:mt-8 mt-4" id="div1">
         <Box className="font-medium mb-4 flex justify-between items-center text-[black]  pl-[10px]">
           <Typography
             className="cursor-pointer text-[24px] font-[500]"
