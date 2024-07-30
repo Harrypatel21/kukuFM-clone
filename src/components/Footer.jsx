@@ -17,7 +17,7 @@ const Footer = () => {
             English, and various regional languages. Discover the latest,
             popular, and timeless audio stories, all in one place.
           </p>
-          <p className="mt-4 md:w-1/3 text-center md:text-right md:mt-0 whitespace-nowrap text-sm">
+          <p className="mt-4 md:w-1/3 text-center md:text-right md:mt-0 text-sm">
             2023 © All rights reserved | Mebigo Labs Private limited
           </p>
         </div>
