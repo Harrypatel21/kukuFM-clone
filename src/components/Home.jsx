@@ -3,6 +3,7 @@ import Header from "./header/Header";
 import CarouselCom from "./carousel/CarouselCom";
 import Genres from "./genres/Genres";
 import ShowRows from "./showRows/ShowRows";
+import Footer from "./Footer";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -99,6 +100,7 @@ function Home() {
           <div ref={horrorRef}>
             <ShowRows title={"Best in Horror"} />
           </div>
+          <Footer />
         </>
       )}
     </div>

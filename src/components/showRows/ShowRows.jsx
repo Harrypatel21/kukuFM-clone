@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import axios from "axios";
 import Carousel from "react-multi-carousel";
+import Chip from "@mui/material/Chip";
 import "react-multi-carousel/lib/styles.css";
 import { PlayArrow } from "@mui/icons-material";
 
@@ -40,7 +41,7 @@ function ShowRows({ title }) {
         .then((data) => setRowData(data.shows));
     },
     [],
-    console.log("ShowROwData", showRowsData)
+    console.log("ShowROwData", title, showRowsData)
   );
 
   const responsive = {
@@ -99,6 +100,21 @@ function ShowRows({ title }) {
                     title === "Artists" && "rounded-[50%] w-[90%] "
                   } `}
                 />
+                {song.is_premium === true ? (
+                  <Chip
+                    label="VIP"
+                    size="small"
+                    sx={{
+                      position: "absolute",
+                      color: "#924036",
+                      textTransform: "uppercase",
+                      top: "1px",
+                      left: "200px",
+                      borderRadius: "5px",
+                      backgroundColor: "#FDE68A",
+                    }}
+                  />
+                ) : null}
 
                 <Box
                   className={`absolute top-0 left-2 md:h-[192.7px] sm:h-[180px] w-[94%] rounded-[10px] bg-[#00000099] flex flex-col items-center justify-center opacity-0 transition-[opacity] duration-[0.40s] hover:opacity-100 [&>*]:translate-y-[20px] [&>*]:transition-transform [&>*]:duration-[0.50s] [&>*]:hover:translate-y-0 backdrop-blur-[1.5px] pb-[20px]  `}
